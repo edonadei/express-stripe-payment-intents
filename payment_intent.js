@@ -2,7 +2,7 @@ import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET);
 
-export const getPaymentIntent = async price => {
+export const getPaymentIntent = async amount => {
   try {
     return (paymentIntent = await stripe.paymentIntents.create({
       amount,
