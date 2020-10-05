@@ -1,4 +1,4 @@
-# minimal-express-stripe-intents
+# A Minimal express server that handle stripe payment intents
 A minimal server to handle Stripe payment intents
 
 ## Getting started 
