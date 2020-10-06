@@ -10,6 +10,9 @@ Generate a .env file with ```STRIPE_SECRET=your-secret-stripe-key```then
 ```npm install``` &
 ```npm start```
 
+## How to use
+Do a POST query on http://your-server-url/api/payment-intent with a body `{'amount': 100}`, and it will return the client_secret of the intent
+
 ## Documentation
 - [Understand the Payment Intents API](https://stripe.com/docs/payments/payment-intents)
 - [Setup this endpoint with React](https://www.youtube.com/watch?v=w1oLdAPyuok)
