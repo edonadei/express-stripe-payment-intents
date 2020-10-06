@@ -1,19 +1,22 @@
 import { getPaymentIntent } from "./payment_intent";
 const express = require("express");
-var bodyParser = require('body-parser')
+var bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 
-app.use(bodyParser.urlencoded({
+app.use(
+  bodyParser.urlencoded({
     extended: true
-  }));
+  })
+);
 
 app.post("/api/payment-intent", (req, res) => {
   if (req.method === "POST") {
     try {
       const { amount } = req.body;
-      const paymentIntent = getPaymentIntent(amount).then(data => console.log(data));
-      res.status(200).send(paymentIntent.client_secret);
+      getPaymentIntent(amount).then(paymentIntent => {
+        res.status(200).send(paymentIntent.client_secret);
+      });
     } catch (err) {
       res.status(500).json({ statusCode: 500, message: err.message });
     }
